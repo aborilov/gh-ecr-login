@@ -38,7 +38,7 @@ core.setOutput('username', username);
 core.setOutput('password', password);
 core.setOutput('registry', registry);
 
-const accountData = run(`aws sts get-caller-identity --output json`);
+const accountData = run(`aws sts get-caller-identity --output json --region ${awsRegion}`);
 const awsAccountId = JSON.parse(accountData).Account;
 
 core.setOutput('account', awsAccountId);
